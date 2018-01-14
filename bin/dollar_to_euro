@@ -4,23 +4,30 @@ require 'optparse'
 require 'methadone'
 require 'dollar_to_euro'
 require 'date'
+require 'byebug'
 
 class App
   include Methadone::Main
   include Methadone::CLILogging
 
   main do |amount|
-    # code for handling options goes here
-  end
+    # If user wants to update the database this action will be processed alone
+    if options[:update]
+      url = "#{DollarToEuro::ECB_URL}&start=04-01-1999&end=#{Date.today.strftime("%d-%m-%Y")}&type=csv"
+      UpdateDatabase.perform_async(url)
+    end
 
-  options[:date] = Date.today.to_s
-  options[:source] = 'http://sdw.ecb.europa.eu/quickviewexport.do?SERIES_KEY=120.EXR.D.USD.EUR.SP00.A&type=csv'
+    options[:date] ||= Date.today.to_s
+    y, m, d = options[:date].split '-'
+    raise "Invalid date." unless Date.valid_date? y.to_i, m.to_i, d.to_i
+    ExchangeRateConverter.convert(amount, options[:date])
+  end
 
   description 'Convert dollars to euros.'
 
   arg :amount, [:required, 'Amount in dollars that you want to convert to euros.']
-  on('-d DATE', '--date', 'Date for having the value of the euro at that specific day, format YYYY-MM-DD.')
-  on('-s SOURCE', '--source', 'Source to CSV file with dollar values.')
+  on('-d DATE', '--date', "Date for having the value of the euro at that specific day, format YYYY-MM-DD. Default '#{Date.today.to_s}'.")
+  on('-u', '--update', "Updates the database to have the latest values. No other options are considered.")
 
   version DollarToEuro::VERSION, compact: true
 

@@ -10,6 +10,5 @@ Feature: Convert dollars to euros
     And the banner should document that this app's arguments are:
       | amount | which is required |
     And the following options should be documented:
-      |--version|
-      |--date   |
-      |--source |
+      |--version    |
+      |--date       |

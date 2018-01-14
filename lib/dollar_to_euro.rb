@@ -1,7 +1,4 @@
 require 'dollar_to_euro/version'
-require 'open-uri'
-require 'csv'
-
-module DollarToEuro
-  # code for converting currencies goes here
-end
+require 'dollar_to_euro/ecb_url'
+require 'dollar_to_euro/worker'
+require 'dollar_to_euro/exchange_rate_converter'

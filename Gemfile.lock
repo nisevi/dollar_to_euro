@@ -3,6 +3,7 @@ PATH
   specs:
     dollar_to_euro (0.1.0)
       methadone (~> 1.9.5)
+      sidekiq (~> 5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -16,8 +17,11 @@ GEM
       thor (~> 0.19)
     backports (3.11.0)
     builder (3.2.3)
+    byebug (9.1.0)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     contracts (0.16.0)
     cucumber (3.1.0)
       builder (>= 2.1.2)
@@ -43,8 +47,12 @@ GEM
     multi_json (1.13.1)
     multi_test (0.1.2)
     power_assert (1.1.1)
+    rack (2.0.3)
+    rack-protection (2.0.0)
+      rack
     rake (10.5.0)
     rdoc (6.0.1)
+    redis (4.0.1)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -58,6 +66,11 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
+    sidekiq (5.0.5)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.4, < 5)
     test-unit (3.2.7)
       power_assert
     thor (0.20.0)
@@ -68,6 +81,7 @@ PLATFORMS
 DEPENDENCIES
   aruba
   bundler (~> 1.16)
+  byebug (~> 9.1)
   dollar_to_euro!
   rake (~> 10.0)
   rdoc
