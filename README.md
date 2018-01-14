@@ -20,4 +20,4 @@ Command line tool to convert a dollar amount to euro.
     - `--source` url for CSV file from where we are getting the dollar values;
 
 - Usage:
-    - `bundle exec bin/dollar_to_euro 200 --date 2018-02-25`
+    - `bundle exec bin/dollar_to_euro --date 2018-02-25 200` where 200 is the amount we want to convert from dollars to euros.
