@@ -26,7 +26,7 @@ Command line tool to convert a dollar amount to euro.
 
 - Options:
     - `--date` to specify the date to pick the value of the euro from that day;
-    - `--update` Updates the database;
+    - `--update` updates the database with the latest values;
 
 - Usage:
     - `bundle exec bin/dollar_to_euro --date 2018-02-25 200` where 200 is the amount we want to convert from dollars to euros.
