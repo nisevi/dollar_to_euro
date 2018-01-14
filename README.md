@@ -1,35 +1,23 @@
 # DollarToEuro
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dollar_to_euro`. To experiment with that code, run `bin/console` for an interactive prompt.
+Command line tool to convert a dollar amount to euro.
 
-TODO: Delete this and the text above, and describe your gem
+## Tests
 
-## Installation
+- Rspec:
+    - `bundle exec rspec`
 
-Add this line to your application's Gemfile:
+- Cucumber:
+    - `bundle exec cucumber`
 
-```ruby
-gem 'dollar_to_euro'
-```
+## Running the converter
 
-And then execute:
+- Help:
+    - `bundle exec bin/dollar_to_euro --help` to see the available options;
 
-    $ bundle
+- Options:
+    - `--date` to specify the date to pick the value of the euro from that day;
+    - `--source` url for CSV file from where we are getting the dollar values;
 
-Or install it yourself as:
-
-    $ gem install dollar_to_euro
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dollar_to_euro.
+- Usage:
+    - `bundle exec bin/dollar_to_euro 200 --date 2018-02-25`

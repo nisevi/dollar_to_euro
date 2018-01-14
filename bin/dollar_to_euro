@@ -2,42 +2,27 @@
 
 require 'optparse'
 require 'methadone'
-require 'dollar_to_euro.rb'
+require 'dollar_to_euro'
+require 'date'
 
 class App
   include Methadone::Main
   include Methadone::CLILogging
 
-  main do # Add args you want: |like,so|
-    # your program code here
-    # You can access CLI options via
-    # the options Hash
+  main do |amount|
+    # code for handling options goes here
   end
 
-  # supplemental methods here
+  options[:date] = Date.today.to_s
+  options[:source] = 'http://sdw.ecb.europa.eu/quickviewexport.do?SERIES_KEY=120.EXR.D.USD.EUR.SP00.A&type=csv'
 
-  # Declare command-line interface here
+  description 'Convert dollars to euros.'
 
-  # description "one line description of your app"
-  #
-  # Accept flags via:
-  # on("--flag VAL","Some flag")
-  # options[flag] will contain VAL
-  #
-  # Specify switches via:
-  # on("--[no-]switch","Some switch")
-  #
-  # Or, just call OptionParser methods on opts
-  #
-  # Require an argument
-  # arg :some_arg 
-  #
-  # # Make an argument optional
-  # arg :optional_arg, :optional
+  arg :amount, [:required, 'Amount in dollars that you want to convert to euros.']
+  on('-d DATE', '--date', 'Date for having the value of the euro at that specific day, format YYYY-MM-DD.')
+  on('-s SOURCE', '--source', 'Source to CSV file with dollar values.')
 
-  version DollarToEuro::VERSION
-
-  use_log_level_option :toggle_debug_on_signal => 'USR1'
+  version DollarToEuro::VERSION, compact: true
 
   go!
 end

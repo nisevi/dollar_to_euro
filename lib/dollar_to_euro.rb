@@ -1,5 +1,7 @@
-require "dollar_to_euro/version"
+require 'dollar_to_euro/version'
+require 'open-uri'
+require 'csv'
 
 module DollarToEuro
-  # Your code goes here...
+  # code for converting currencies goes here
 end
