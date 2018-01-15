@@ -8,7 +8,6 @@ Gem::Specification.new do |spec|
   spec.version       = DollarToEuro::VERSION
   spec.authors       = ['nisevi']
   spec.email         = ['nicolas.s.vidal@gmail.com']
-
   spec.summary       = 'Convert dollar to euro.'
   spec.description   = 'Convert dollar to euro.'
   spec.homepage      = 'https://github.com/nisevi/dollar_to_euro'

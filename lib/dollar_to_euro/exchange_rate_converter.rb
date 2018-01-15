@@ -45,8 +45,8 @@ class ExchangeRateConverter
     end
 
     def database_is_out_of_date?
-      # TODO: evaluate when the database is out of date
-      false
+      # TODO: handle more complex scenarios
+      Dollar.count.zero?
     end
   end
 end
