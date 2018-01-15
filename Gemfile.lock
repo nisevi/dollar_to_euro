@@ -3,6 +3,7 @@ PATH
   specs:
     dollar_to_euro (0.1.0)
       dotenv (~> 2.2)
+      holidays (~> 6.3)
       methadone (~> 1.9.5)
       mongoid (~> 6.1.0)
       sidekiq (~> 5.0)
@@ -55,6 +56,7 @@ GEM
     dotenv (2.2.1)
     ffi (1.9.18)
     gherkin (5.0.0)
+    holidays (6.3.0)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     methadone (1.9.5)

@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
     raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   end
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+  spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = 'exe'
@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('whenever', '~> 0.10.0')
   spec.add_dependency('mongoid', '~> 6.1.0')
   spec.add_dependency('dotenv', '~> 2.2')
+  spec.add_dependency('holidays', '~> 6.3')
 end

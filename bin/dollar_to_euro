@@ -19,6 +19,8 @@ class App
       options[:date] ||= Date.today.to_s
       y, m, d = options[:date].split '-'
       raise 'Invalid date.' unless Date.valid_date? y.to_i, m.to_i, d.to_i
+      # if database is out of date tell the user to update it
+      raise 'Please update the database first.' if ExchangeRateConverter.database_is_out_of_date?
       puts ExchangeRateConverter.convert(options[:amount].to_f, options[:date])
     end
   end
