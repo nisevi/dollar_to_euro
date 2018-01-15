@@ -1,10 +1,8 @@
 require 'sidekiq'
 require 'open-uri'
-require 'csv'
 require 'mongoid'
 require 'dotenv'
 require 'digest'
-require 'byebug'
 require 'date'
 require_relative 'dollar'
 
