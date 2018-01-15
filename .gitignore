@@ -5,3 +5,4 @@ html
 .idea
 .byebug_history
 dump.rdb
+.env

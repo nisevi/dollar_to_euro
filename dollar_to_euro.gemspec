@@ -37,4 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('rspec', '~> 3')
   spec.add_development_dependency('byebug', '~> 9.1')
   spec.add_dependency('sidekiq', '~> 5.0')
+  spec.add_dependency('whenever', '~> 0.10.0')
+  spec.add_dependency('mongoid', '~> 6.1.0')
+  spec.add_dependency('dotenv', '~> 2.2')
 end
