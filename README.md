@@ -4,6 +4,11 @@ Command line tool to convert a dollar amount to euro.
 
 ## Dependencies
 
+- MongoDB:
+    - You will need to [install MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+    - For starting MongoDB you may need to run `sudo mongod`
+    - If you face an issue saying `/data/db` is missing, just run `sudo mkdir -p /data/db`
+
 - Redis:
     - [Quick installation guide](https://redis.io/topics/quickstart);
 
