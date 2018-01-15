@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/a0b7d744a73e42bb731d/maintainability)](https://codeclimate.com/github/nisevi/dollar_to_euro/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a0b7d744a73e42bb731d/test_coverage)](https://codeclimate.com/github/nisevi/dollar_to_euro/test_coverage) [![Build Status](https://semaphoreci.com/api/v1/nisevi/dollar_to_euro/branches/master/shields_badge.svg)](https://semaphoreci.com/nisevi/dollar_to_euro)
+
 # DollarToEuro
 
 Command line tool to convert a dollar amount to euro.
