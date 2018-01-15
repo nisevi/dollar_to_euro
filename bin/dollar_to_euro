@@ -4,7 +4,6 @@ require 'optparse'
 require 'methadone'
 require 'dollar_to_euro'
 require 'date'
-require 'byebug'
 
 class App
   include Methadone::Main
