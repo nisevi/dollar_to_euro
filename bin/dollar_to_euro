@@ -18,8 +18,8 @@ class App
 
     options[:date] ||= Date.today.to_s
     y, m, d = options[:date].split '-'
-    raise "Invalid date." unless Date.valid_date? y.to_i, m.to_i, d.to_i
-    ExchangeRateConverter.convert(amount, options[:date])
+    raise 'Invalid date.' unless Date.valid_date? y.to_i, m.to_i, d.to_i
+    puts ExchangeRateConverter.convert(amount.to_f, options[:date])
   end
 
   description 'Convert dollars to euros.'
