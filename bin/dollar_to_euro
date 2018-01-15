@@ -26,7 +26,7 @@ class App
 
   arg :amount, [:required, 'Amount in dollars that you want to convert to euros.']
   on('-d DATE', '--date', "Date for having the value of the euro at that specific day, format YYYY-MM-DD. Default '#{Date.today.to_s}'.")
-  on('-u', '--update', "Updates the database to have the latest values. No other options are considered.")
+  on('-u', '--update', 'Updates the database to have the latest values. No other options are considered.')
 
   version DollarToEuro::VERSION, compact: true
 
