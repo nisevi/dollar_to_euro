@@ -1,5 +1,10 @@
 require_relative 'dollar'
 require 'holidays'
+require 'holidays/core_extensions/date'
+
+class Date
+  include Holidays::CoreExtensions::Date
+end
 
 class ExchangeRateConverter
   class << self
