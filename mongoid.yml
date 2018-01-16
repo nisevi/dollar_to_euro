@@ -4,3 +4,13 @@ development:
       database: ironman
       hosts:
         - localhost:27017
+test:
+  clients:
+    default:
+      database: spiderman
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
