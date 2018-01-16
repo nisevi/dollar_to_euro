@@ -26,10 +26,10 @@ It keeps a database updated with the latest values for exchange from `1999-01-04
 ## Tests
 
 - Rspec:
-    - `bundle exec rspec`
+    - `bundle exec rspec`;
 
 - Cucumber:
-    - `bundle exec cucumber`
+    - `bundle exec cucumber`;
 
 ## Running the converter
 
@@ -42,6 +42,6 @@ It keeps a database updated with the latest values for exchange from `1999-01-04
     - `--update` updates the database with the latest values;
 
 - Usage:
-    - `bundle exec bin/dollar_to_euro --date 2018-02-25 --amount 200`.
-    - `bundle exec bin/dollar_to_euro --amount 200`.
-    - `bundle exec bin/dollar_to_euro --update`.
+    - `bundle exec bin/dollar_to_euro --date 2018-02-25 --amount 200`;
+    - `bundle exec bin/dollar_to_euro --amount 200`;
+    - `bundle exec bin/dollar_to_euro --update`;
