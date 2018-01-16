@@ -1,23 +1,21 @@
 require 'sidekiq'
 require 'open-uri'
 require 'mongoid'
-require 'dotenv'
 require 'digest'
 require 'date'
 require_relative 'dollar'
 
 Sidekiq.configure_client do |config|
-  config.redis = {db: 1}
+  config.redis = { db: 1 }
 end
 
 Sidekiq.configure_server do |config|
-  config.redis = {db: 1}
+  config.redis = { db: 1 }
 end
 
 class UpdateDatabase
   include Sidekiq::Worker
-  Dotenv.load!('.env')
-  Mongoid.load!('mongoid.yml')
+  Mongoid.load!('mongoid.yml', :development)
 
   def perform(url)
     download_file(url)
