@@ -5,6 +5,5 @@ html
 .idea
 .byebug_history
 dump.rdb
-.env
 coverage
 spec/examples.txt
