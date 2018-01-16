@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'byebug'
 
 describe 'Check app version.' do
   it 'should be the latest version' do
