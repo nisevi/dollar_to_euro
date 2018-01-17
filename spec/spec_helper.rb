@@ -20,13 +20,10 @@ end
 
 require_relative '../lib/dollar_to_euro'
 
-RSpec.configure do |config|
-  config.before(:all) do
-    Mongoid.load!('mongoid.yml', :test)
-  end
+Mongoid.load!('mongoid.yml', :test)
 
-  config.before(:all) do
-    Mongoid.load!('mongoid.yml', :test)
+RSpec.configure do |config|
+  config.before(:each) do
     Dollar.delete_all
   end
 
