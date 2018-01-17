@@ -48,7 +48,7 @@ class UpdateDatabase
     # if the database is already up to date
     return {} if attributes.first[:date] == Dollar.last.date
     # we nee to load some registers to update the database
-    attributes.select { |dollar| dollar[:date] > Dollar.last.date }
+    attributes.select { |dollar| dollar[:date] > Dollar.last.date }.reverse
   end
 
   def update_database(attrs)
