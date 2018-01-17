@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    dollar_to_euro (0.1.0)
-      holidays
-      methadone
-      mongoid
-      sidekiq
-      whenever
+    dollar_to_euro (0.1.1)
+      holidays (~> 6.3)
+      methadone (~> 1.9, >= 1.9.5)
+      mongoid (~> 6.2, >= 6.2.1)
+      sidekiq (~> 5.0, >= 5.0.5)
+      whenever (~> 0.10.0)
 
 GEM
   remote: https://rubygems.org/
@@ -109,14 +109,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aruba
-  bundler
-  byebug
+  aruba (~> 0.14.3)
+  bundler (~> 1.16, >= 1.16.1)
+  byebug (~> 9.1)
   dollar_to_euro!
-  rake
-  rdoc
-  rspec
-  simplecov
+  rake (~> 12.3)
+  rdoc (~> 6.0, >= 6.0.1)
+  rspec (~> 3.7)
+  simplecov (~> 0.15.1)
 
 BUNDLED WITH
    1.16.1
