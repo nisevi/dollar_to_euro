@@ -25,6 +25,11 @@ RSpec.configure do |config|
     Mongoid.load!('mongoid.yml', :test)
   end
 
+  config.before(:all) do
+    Mongoid.load!('mongoid.yml', :test)
+    Dollar.delete_all
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
