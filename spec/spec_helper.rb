@@ -20,9 +20,11 @@ end
 
 require_relative '../lib/dollar_to_euro'
 
+Mongoid.load!('mongoid.yml', :test)
+
 RSpec.configure do |config|
-  config.before(:all) do
-    Mongoid.load!('mongoid.yml', :test)
+  config.before(:each) do
+    Dollar.delete_all
   end
 
   # rspec-expectations config goes here. You can use an alternate
