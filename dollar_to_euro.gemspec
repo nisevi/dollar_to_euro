@@ -3,14 +3,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'dollar_to_euro/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'dollar_to_euro'
-  spec.license       = 'Apache-2.0'
+  spec.name          = 'dollar_to_euro'.freeze
+  spec.license       = 'Apache-2.0'.freeze
   spec.version       = DollarToEuro::VERSION
-  spec.authors       = ['nisevi']
-  spec.email         = ['nicolas.s.vidal@gmail.com']
-  spec.summary       = 'Convert dollar to euro.'
-  spec.description   = 'Command line tool to convert dollars to euros.'
-  spec.homepage      = 'https://github.com/nisevi/dollar_to_euro'
+  spec.authors       = ['Nicolas Sebastian Vidal'.freeze]
+  spec.email         = ['nicolas.s.vidal@gmail.com'.freeze]
+  spec.summary       = 'Convert dollar to euro.'.freeze
+  spec.description   = 'Command line tool to convert dollars to euros.'.freeze
+  spec.homepage      = 'https://github.com/nisevi/dollar_to_euro'.freeze
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'bin'
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 2.5.0'.freeze
 
   spec.add_development_dependency 'aruba', '~> 0.14.3'
   spec.add_development_dependency 'bundler', '~> 1.16', '>= 1.16.1'
