@@ -1,9 +1,10 @@
 require 'sidekiq'
 require 'open-uri'
 require 'mongoid'
-require 'digest'
+require 'digest/sha2'
 require 'date'
 require_relative 'dollar'
+require_relative 'csv_hash'
 
 Sidekiq.configure_client do |config|
   config.redis = { db: 1 }
@@ -19,13 +20,20 @@ class UpdateDatabase
 
   def perform(url)
     download_file(url)
-    attrs = process_csv_attributes
-    clean_attrs = setup_attributes(attrs)
+    digest = Digest::SHA2.new(256).hexdigest('csv/dollars.csv')
+    return if file_not_changed?(digest)
+    CsvHash.create(digest: digest)
+    clean_attrs = setup_attributes(process_csv_attributes)
     update_database(clean_attrs)
   end
 
   def download_file(url)
     IO.copy_stream(open(url), 'csv/dollars.csv')
+  end
+
+  def file_not_changed?(digest)
+    last = CsvHash.last
+    !last.nil? && last.digest == digest
   end
 
   def process_csv_attributes
