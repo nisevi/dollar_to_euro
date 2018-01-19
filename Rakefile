@@ -2,27 +2,42 @@ def dump_load_path
   puts $LOAD_PATH.join("\n")
   found = nil
   $LOAD_PATH.each do |path|
-    if File.exists?(File.join(path,"rspec"))
+    if File.exists?(File.join(path, 'rspec'))
       puts "Found rspec in #{path}"
-      if File.exists?(File.join(path,"rspec","core"))
-        puts "Found core"
-        if File.exists?(File.join(path,"rspec","core","rake_task"))
-          puts "Found rake_task"
-          found = path
-        else
-          puts "!! no rake_task"
-        end
-      else
-        puts "!!! no core"
-      end
+      found = found_core?(path)
     end
   end
+  found_is_nil?(found)
+end
+
+def found_core?(path)
+  if File.exists?(File.join(path, 'rspec', 'core'))
+    puts 'Found core'
+    found_rake_task?(path)
+  else
+    puts '!!! no core'
+    nil
+  end
+end
+
+def found_rake_task?(path)
+  if File.exists?(File.join(path, 'rspec', 'core', 'rake_task'))
+    puts 'Found rake_task'
+    path
+  else
+    puts '!! no rake_task'
+    nil
+  end
+end
+
+def found_is_nil?(found)
   if found.nil?
     puts "Didn't find rspec/core/rake_task anywhere"
   else
     puts "Found in #{path}"
   end
 end
+
 require 'bundler'
 require 'rake/clean'
 
@@ -48,7 +63,7 @@ RSpec::Core::RakeTask.new do |t|
 end
 
 
-CUKE_RESULTS = 'results.html'
+CUKE_RESULTS = 'results.html'.freeze
 CLEAN << CUKE_RESULTS
 Cucumber::Rake::Task.new(:features) do |t|
   t.cucumber_opts = "features --format html -o #{CUKE_RESULTS} --format pretty --no-source -x"
@@ -56,11 +71,9 @@ Cucumber::Rake::Task.new(:features) do |t|
 end
 
 Rake::RDocTask.new do |rd|
-  
-  rd.main = "README.rdoc"
-  
-  rd.rdoc_files.include("README.rdoc","lib/**/*.rb","bin/**/*")
+  rd.main = 'README.rdoc'
+  rd.rdoc_files.include('README.rdoc', 'lib/**/*.rb', 'bin/**/*')
 end
 
-task :default => [:spec,:features]
+task default: %i[spec features]
 
