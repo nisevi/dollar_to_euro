@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 def dump_load_path
   puts $LOAD_PATH.join("\n")
   found = nil

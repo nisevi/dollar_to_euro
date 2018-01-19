@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'dollar'
 require 'holidays'
 require 'holidays/core_extensions/date'
@@ -21,11 +22,11 @@ class ExchangeRateConverter
 
     def calculate_with_default_rate(amount, parsed_date)
       return Dollar.last.value * amount if parsed_date >= Date.today
-      return Dollar.first.value * amount if parsed_date < Dollar.first.date
+      Dollar.first.value * amount
     end
 
     # returns true if date is oldest than the oldest register we have
-    # returns true if date is todays date
+    # returns true if date is today's date
     def default_date?(parsed_date)
       parsed_date >= Date.today || parsed_date < Dollar.first.date
     end
@@ -40,8 +41,8 @@ class ExchangeRateConverter
 
     def holiday?(date)
       Holidays.cache_between(Time.now, 2.years.from_now, :us, :observed)
-      y, m, d = date.split '-'
-      parsed_date = Date.civil(y.to_i, m.to_i, d.to_i)
+      year, month, day = date.split '-'
+      parsed_date = Date.civil(year.to_i, month.to_i, day.to_i)
       parsed_date.holiday?(:us)
     end
 
