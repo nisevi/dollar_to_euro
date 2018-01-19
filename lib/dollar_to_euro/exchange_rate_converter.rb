@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'dollar'
 require 'holidays'
 require 'holidays/core_extensions/date'
