@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def dump_load_path
   puts $LOAD_PATH.join("\n")
   found = nil
@@ -57,13 +59,11 @@ include Rake::DSL
 
 Bundler::GemHelper.install_tasks
 
-
 RSpec::Core::RakeTask.new do |t|
   # Put spec opts in a file named .rspec in root
 end
 
-
-CUKE_RESULTS = 'results.html'.freeze
+CUKE_RESULTS = 'results.html'
 CLEAN << CUKE_RESULTS
 Cucumber::Rake::Task.new(:features) do |t|
   t.cucumber_opts = "features --format html -o #{CUKE_RESULTS} --format pretty --no-source -x"
@@ -76,4 +76,3 @@ Rake::RDocTask.new do |rd|
 end
 
 task default: %i[spec features]
-
