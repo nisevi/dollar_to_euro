@@ -16,6 +16,7 @@ Sidekiq.configure_server do |config|
   config.redis = { db: 1 }
 end
 
+# Worker that updates the database based on the downloaded CSV file.
 class UpdateDatabase
   include Sidekiq::Worker
   Mongoid.load!('mongoid.yml', :development)

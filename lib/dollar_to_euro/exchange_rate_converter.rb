@@ -4,10 +4,12 @@ require_relative 'dollar'
 require 'holidays'
 require 'holidays/core_extensions/date'
 
+# Date class is opened here to include the Holidays methods.
 class Date
   include Holidays::CoreExtensions::Date
 end
 
+# ExchangeRateConverter class holds all the logic to make the conversion.
 class ExchangeRateConverter
   class << self
     def convert(amount, date)
