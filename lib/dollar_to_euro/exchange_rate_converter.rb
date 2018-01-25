@@ -18,14 +18,14 @@ class ExchangeRateConverter
       return calculate_with_default_rate(amount, parsed_date) if default_date?(parsed_date)
       # if exchange rate exists for the given date return the exchange
       register = Dollar.where(date: parsed_date)
-      return register.first.value * amount if register.exists?
+      return register.first.value / amount if register.exists?
       # if the date is holiday or weekend pick the previous available rate exchange
-      previous_rate_available(parsed_date) * amount if date_is_holiday_or_weekend?(date)
+      previous_rate_available(parsed_date) / amount if date_is_holiday_or_weekend?(date)
     end
 
     def calculate_with_default_rate(amount, parsed_date)
-      return Dollar.last.value * amount if parsed_date >= Date.today
-      Dollar.first.value * amount
+      return Dollar.last.value / amount if parsed_date >= Date.today
+      Dollar.first.value / amount
     end
 
     # returns true if date is oldest than the oldest register we have
