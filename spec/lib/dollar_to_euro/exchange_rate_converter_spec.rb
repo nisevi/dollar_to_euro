@@ -33,8 +33,8 @@ describe 'Methods that involve database interaction' do
     amount = 150
     today = Date.today
     very_old_date = Date.parse('1990-04-04')
-    expect(ExchangeRateConverter.calculate_with_default_rate(amount, today)).to eql(amount * Dollar.last.value)
-    expect(ExchangeRateConverter.calculate_with_default_rate(amount, very_old_date)).to eql(amount * Dollar.first.value)
+    expect(ExchangeRateConverter.calculate_with_default_rate(amount, today)).to eql(amount / Dollar.last.value)
+    expect(ExchangeRateConverter.calculate_with_default_rate(amount, very_old_date)).to eql(amount / Dollar.first.value)
   end
 
   it 'should convert with with a default exchange rate' do
@@ -42,22 +42,22 @@ describe 'Methods that involve database interaction' do
     very_old_date = '1990-04-04'
     today = Date.today.to_s
     future = (Date.today + 1).to_s
-    expect(ExchangeRateConverter.convert(amount, today)).to eql(amount * @dollar3.value)
-    expect(ExchangeRateConverter.convert(amount, future)).to eql(amount * @dollar3.value)
-    expect(ExchangeRateConverter.convert(amount, very_old_date)).to eql(amount * @dollar1.value)
+    expect(ExchangeRateConverter.convert(amount, today)).to eql(amount / @dollar3.value)
+    expect(ExchangeRateConverter.convert(amount, future)).to eql(amount / @dollar3.value)
+    expect(ExchangeRateConverter.convert(amount, very_old_date)).to eql(amount / @dollar1.value)
   end
 
   it 'should convert with with an existent exchange rate' do
     amount = 175
-    expect(ExchangeRateConverter.convert(amount, @dollar2.date.to_s)).to eql(amount * @dollar2.value)
+    expect(ExchangeRateConverter.convert(amount, @dollar2.date.to_s)).to eql(amount / @dollar2.value)
   end
 
   it 'should convert with with a previous exchange rate' do
     amount = 36
     weekend = '2018-01-14'
     holiday = '2018-01-15'
-    expect(ExchangeRateConverter.convert(amount, weekend)).to eql(amount * @dollar3.value)
-    expect(ExchangeRateConverter.convert(amount, holiday)).to eql(amount * @dollar3.value)
+    expect(ExchangeRateConverter.convert(amount, weekend)).to eql(amount / @dollar3.value)
+    expect(ExchangeRateConverter.convert(amount, holiday)).to eql(amount / @dollar3.value)
   end
 
   it 'should inform if database is out of date' do
