@@ -36,13 +36,6 @@ It keeps a database updated with the latest values for exchange from `1999-01-04
     - For starting MongoDB client run `mongo`;
     - If you face an issue saying `/data/db` is missing, just create the directory with `sudo mkdir -p /data/db`;
 
-- Redis:
-    - [Quick installation guide](https://redis.io/topics/quickstart);
-
-- Sidekiq:
-    - For running locally you will need to start the worker `bundle exec sidekiq -r ~/absolute/path/to/dollar_to_euro/lib/dollar_to_euro/worker.rb`;
-    - More info [here](https://www.youtube.com/watch?v=bfPb1zD91Rg&list=PLjeHh2LSCFrWGT5uVjUuFKAcrcj5kSai1); 
-
 ## Tests
 
 - Rspec:
