@@ -75,4 +75,6 @@ Rake::RDocTask.new do |rd|
   rd.rdoc_files.include('README.rdoc', 'lib/**/*.rb', 'bin/**/*')
 end
 
+require 'dollar_to_euro/custom_tasks'
+
 task default: %i[spec features]
