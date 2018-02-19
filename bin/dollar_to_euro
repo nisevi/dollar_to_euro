@@ -12,26 +12,18 @@ class App
   include Methadone::CLILogging
 
   main do
-    # If user wants to update the database this action will be processed alone
-    if options[:update]
-      url = "#{DollarToEuro::ECB_URL}&start=04-01-1999&end=#{Date.today.strftime("%d-%m-%Y")}&type=csv"
-      UpdateDatabase.perform_async(url)
-    else
-      raise 'Amount required.' if options[:amount].nil?
-      options[:date] ||= Date.today.to_s
-      y, m, d = options[:date].split '-'
-      raise 'Invalid date.' unless Date.valid_date? y.to_i, m.to_i, d.to_i
-      # if database is out of date tell the user to update it
-      raise 'Please update the database first.' if ExchangeRateConverter.database_is_out_of_date?
-      puts ExchangeRateConverter.convert(options[:amount].to_f, options[:date])
-    end
+    raise 'Amount required.' if options[:amount].nil?
+    options[:date] ||= Date.today.to_s
+    y, m, d = options[:date].split '-'
+    raise 'Invalid date.' unless Date.valid_date? y.to_i, m.to_i, d.to_i
+    raise 'Please update the database first.' if ExchangeRateConverter.database_is_out_of_date?
+    puts ExchangeRateConverter.convert(options[:amount].to_f, options[:date])
   end
 
   description 'Convert dollars to euros.'
 
   on('-a AMOUNT', '--amount', 'Amount in dollars that you want to convert to euros.')
   on('-d DATE', '--date', "Date for having the value of the euro at that specific day, format YYYY-MM-DD. Default '#{Date.today.to_s}'.")
-  on('-u', '--update', 'Updates the database to have the latest values. No other options are considered.')
 
   version DollarToEuro::VERSION, compact: true
 
