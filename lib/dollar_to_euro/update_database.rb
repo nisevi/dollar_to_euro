@@ -7,7 +7,6 @@ require 'date'
 require_relative 'dollar'
 require_relative 'csv_hash'
 
-# Worker that updates the database based on the downloaded CSV file.
 class UpdateDatabase
   Mongoid.load!('mongoid.yml', :development)
 
@@ -35,7 +34,6 @@ class UpdateDatabase
       count = 0
       attributes = []
       while line = file.gets
-        # skip first 5 lines
         count += 1
         next if count < 6
         date, value = line.split(',')
@@ -45,12 +43,9 @@ class UpdateDatabase
     end
 
     def setup_attributes(attributes)
-      # if it is the first time the database is being loaded
       return attributes.reverse if Dollar.count.zero?
       last = Dollar.last
-      # if the database is already up to date
       return {} if attributes.first[:date] == last.date
-      # we nee to load some registers to update the database
       attributes.select { |dollar| dollar[:date] > last.date }.reverse
     end
 
