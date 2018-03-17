@@ -188,7 +188,7 @@
       identification within third-party archives.
 
       Name: dollar_to_euro
-      Copyright 2018 nisevi
+      Copyright 2018 Nicolas Sebastian Vidal
 
 
    Licensed under the Apache License, Version 2.0 (the "License");
