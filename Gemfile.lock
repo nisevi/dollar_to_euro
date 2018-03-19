@@ -27,7 +27,7 @@ GEM
     backports (3.11.1)
     bson (4.3.0)
     builder (3.2.3)
-    byebug (9.1.0)
+    byebug (10.0.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
@@ -101,7 +101,7 @@ PLATFORMS
 DEPENDENCIES
   aruba (~> 0.14.3)
   bundler (~> 1.16, >= 1.16.1)
-  byebug (~> 9.1)
+  byebug (~> 10.0)
   dollar_to_euro!
   rake (~> 12.3)
   rdoc (~> 6.0, >= 6.0.1)
