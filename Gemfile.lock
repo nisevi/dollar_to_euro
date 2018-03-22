@@ -27,7 +27,7 @@ GEM
     backports (3.11.1)
     bson (4.3.0)
     builder (3.2.3)
-    byebug (10.0.0)
+    byebug (10.0.1)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
