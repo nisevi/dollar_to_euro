@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     dollar_to_euro (0.1.1)
-      methadone (~> 1.9, >= 1.9.5)
+      methadone (>= 1.9.5, < 3.0)
       mongoid (>= 6.2.1, < 8.0)
       whenever (~> 0.10.0)
       whenever-test (~> 1.0, >= 1.0.1)
@@ -56,10 +56,10 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
-    methadone (1.9.5)
+    methadone (2.0.2)
       bundler
     minitest (5.11.3)
-    mongo (2.9.0)
+    mongo (2.10.1)
       bson (>= 4.4.2, < 5.0.0)
     mongoid (7.0.4)
       activemodel (>= 5.1, < 6.0.0)
