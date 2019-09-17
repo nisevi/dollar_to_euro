@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'mongoid', '>= 6.2.1', '< 8.0'
   spec.add_development_dependency 'rspec', '~> 3.7'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
-  spec.add_dependency 'whenever', '~> 0.10.0'
+  spec.add_dependency 'whenever', '>= 0.10', '< 1.1'
   spec.add_dependency 'whenever-test', '~> 1.0', '>= 1.0.1'
 end

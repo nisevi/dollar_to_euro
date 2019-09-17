@@ -4,7 +4,7 @@ PATH
     dollar_to_euro (0.1.1)
       methadone (~> 1.9, >= 1.9.5)
       mongoid (>= 6.2.1, < 8.0)
-      whenever (~> 0.10.0)
+      whenever (>= 0.10, < 1.1)
       whenever-test (~> 1.0, >= 1.0.1)
 
 GEM
@@ -59,7 +59,7 @@ GEM
     methadone (1.9.5)
       bundler
     minitest (5.11.3)
-    mongo (2.9.0)
+    mongo (2.10.1)
       bson (>= 4.4.2, < 5.0.0)
     mongoid (7.0.4)
       activemodel (>= 5.1, < 6.0.0)
@@ -90,7 +90,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    whenever (0.10.0)
+    whenever (1.0.0)
       chronic (>= 0.6.3)
     whenever-test (1.0.1)
       whenever
