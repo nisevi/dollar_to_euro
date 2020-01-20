@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'aruba', '~> 0.14.3'
   spec.add_development_dependency 'bundler', '~> 1.16', '>= 1.16.1'
-  spec.add_development_dependency 'byebug', '~> 10.0'
+  spec.add_development_dependency 'byebug', '~> 11.1'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rdoc', '~> 6.0', '>= 6.0.1'
   spec.add_dependency 'methadone', '~> 1.9', '>= 1.9.5'
