@@ -55,7 +55,6 @@ GEM
     gherkin (5.1.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    json (2.2.0)
     methadone (1.9.5)
       bundler
     minitest (5.11.3)
@@ -81,11 +80,10 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.2)
-    simplecov (0.17.1)
+    simplecov (0.18.2)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.0)
     thor (0.20.3)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
@@ -106,7 +104,7 @@ DEPENDENCIES
   rake (~> 12.3)
   rdoc (~> 6.0, >= 6.0.1)
   rspec (~> 3.7)
-  simplecov (~> 0.17.1)
+  simplecov (~> 0.18.2)
 
 BUNDLED WITH
    1.17.3
