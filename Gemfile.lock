@@ -55,7 +55,7 @@ GEM
     gherkin (5.1.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    json (2.2.0)
+    json (2.3.0)
     methadone (1.9.5)
       bundler
     minitest (5.11.3)
