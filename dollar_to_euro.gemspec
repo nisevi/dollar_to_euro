@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 2.5.0'
 
-  spec.add_development_dependency 'aruba', '~> 0.14.3'
+  spec.add_development_dependency 'aruba', '~> 1.0.4'
   spec.add_development_dependency 'bundler', '~> 1.16', '>= 1.16.1'
   spec.add_development_dependency 'byebug', '~> 10.0'
   spec.add_development_dependency 'rake', '~> 12.3'
